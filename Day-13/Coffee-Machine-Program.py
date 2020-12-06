@@ -29,7 +29,7 @@ class coffeMachine:
     # Process the payment
     def processCoins(self):
         self.payment = input(
-            "Enter payment here. Accepted coins ( quarters = $0.25, dimes = $0.10, nickles = $0.05, pennies = $0.01 ): ").split(",")
+            "Enter payment here. Accepted coins ( quarters = $4, dimes = $2, nickles = $1, pennies = $1 ): ").split(",")
 
         if self.payment != "":
 
