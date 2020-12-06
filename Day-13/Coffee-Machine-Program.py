@@ -30,30 +30,36 @@ class coffeMachine:
     def processCoins(self):
         self.payment = input(
             "Enter payment here. Accepted coins ( quarters = $0.25, dimes = $0.10, nickles = $0.05, pennies = $0.01 ): ").split(",")
-        self.allCoins = {}
-        for i in self.payment:
-            i = i.split(" ")
-            self.allCoins[i[1]] = int(i[0])
 
-        # Default Coin Values
-        self.quarters = 4
-        self.dimes = 2
-        self.nickles = 1
-        self.pennies = 1
+        if self.payment != "":
 
-        self.totalAmount = 0
-        self.coins = list(self.allCoins.keys())
+            self.allCoins = {}
+            for i in self.payment:
+                i = i.split(" ")
+                self.allCoins[i[1]] = int(i[0])
 
-        # Calculate the total payment
-        for coin in self.coins:
-            if coin == "quarters":
-                self.totalAmount += self.allCoins[coin]*self.quarters
-            elif coin == "dimes":
-                self.totalAmount += self.allCoins[coin]*self.dimes
-            elif coin == "nickles":
-                self.totalAmount += self.allCoins[coin]*self.nickles
-            elif coin == "pennies":
-                self.totalAmount += self.allCoins[coin]*self.pennies
+            # Default Coin Values
+            self.quarters = 4
+            self.dimes = 2
+            self.nickles = 1
+            self.pennies = 1
+
+            self.totalAmount = 0
+            self.coins = list(self.allCoins.keys())
+
+            # Calculate the total payment
+            for coin in self.coins:
+                if coin == "quarters":
+                    self.totalAmount += self.allCoins[coin]*self.quarters
+                elif coin == "dimes":
+                    self.totalAmount += self.allCoins[coin]*self.dimes
+                elif coin == "nickles":
+                    self.totalAmount += self.allCoins[coin]*self.nickles
+                elif coin == "pennies":
+                    self.totalAmount += self.allCoins[coin]*self.pennies
+            else:
+                print("Invalid Payment Input")
+                return None
 
         self.checkTransaction()
 
@@ -90,7 +96,7 @@ class coffeMachine:
 # Driver Code
 customer = coffeMachine(400, 540, 120, 550)
 
-choice = ''
+choice = ""
 
 # Requirements for each coffee (Water, Milk, Coffee, Money)
 expresso = [250, 0, 16, 4]
